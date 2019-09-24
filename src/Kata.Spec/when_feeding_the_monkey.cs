@@ -32,11 +32,26 @@ namespace Kata.Spec
         private static int _result;
     }
 
+    public class when_user_input_is_one_number
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("3"); };
+
+        It should_return_the_number = () => { _result.Should().Be(3); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
     internal class Calculator
     {
-        public int Add()
+        public int Add(string input="")
         {
-            return - 1;
+            return 0;
         }
     }
 }
