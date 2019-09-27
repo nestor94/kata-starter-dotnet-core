@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Kata
 {
@@ -13,18 +15,16 @@ namespace Kata
                 separator = new [] {input.Split("\n")[0].Replace("/", "")};
                 input = input.Split("\n")[1];
             }
-            int sum = 0;
-            
-            var numbers = input.Split(separator, StringSplitOptions.None);
-            foreach (var number in numbers)
+            var query = input.Split(separator, StringSplitOptions.None);
+            var numbers = query.Select(int.Parse).ToArray();
+            var negativeNumbers = numbers.Where(x => x < 0).ToArray();
+            if (negativeNumbers.Any())
             {
-                if (int.Parse(number) < 0)
-                {
-                    throw new Exception($"negatives not allowed: {number}");
-                }
-                sum += int.Parse(number);
+                string exceptionNumbers = string.Join(", ", negativeNumbers);
+                throw new Exception($"negatives not allowed: {exceptionNumbers}");
             }
-            return sum;
+
+            return numbers.Sum();
         }
     }
 }

@@ -127,6 +127,21 @@ namespace Kata.Spec
         private static Calculator _systemUnderTest;
     }
 
+    public class when_user_inputs_numbers_greater_than_1001
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("2,1001"); };
+
+        It should_ignore_them = () => { _result.Should().Be(2); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
 }
 
 /*
