@@ -18,6 +18,10 @@ namespace Kata
             var numbers = input.Split(separator, StringSplitOptions.None);
             foreach (var number in numbers)
             {
+                if (int.Parse(number) < 0)
+                {
+                    throw new Exception($"negatives not allowed: {number}");
+                }
                 sum += int.Parse(number);
             }
             return sum;
