@@ -12,7 +12,7 @@ namespace Kata
             var separator = new [] {",", "\n"};
             if (input.StartsWith("//"))
             {
-                separator = new [] {input.Split("\n")[0].Replace("/", "")};
+                separator = new [] {input.Split("\n")[0].Replace("/", "").Replace("[", "").Replace("]", "")};
                 input = input.Split("\n")[1];
             }
             var query = input.Split(separator, StringSplitOptions.None);

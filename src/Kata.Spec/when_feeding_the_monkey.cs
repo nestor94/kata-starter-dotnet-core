@@ -156,6 +156,21 @@ namespace Kata.Spec
         private static int _result;
     }
 
+    public class when_input_configures_multiple_custom_delimiter
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("//[*][%]\n1*2%3"); };
+
+        It should_split_by_those_delimiters = () => { _result.Should().Be(6); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
 
 }
 
