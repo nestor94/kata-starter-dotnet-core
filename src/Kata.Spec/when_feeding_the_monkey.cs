@@ -55,6 +55,36 @@ namespace Kata.Spec
         private static Calculator _systemUnderTest;
         private static int _result;
     }
+
+    public class when_input_is_unknown_length
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("1,2,3"); };
+
+        It should_sum_those_numbers = () => { _result.Should().Be(6); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+    public class when_there_is_other_delimiter__as_newline
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("1\n2,3"); };
+
+        It should_sum_those_numbers = () => { _result.Should().Be(6); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
 }
 
 /*
