@@ -6,15 +6,34 @@ namespace Kata.Spec
     public class when_feeding_the_monkey
     {
         static Monkey _systemUnderTest;
-        
-        Establish context = () => 
+
+        Establish context = () =>
             _systemUnderTest = new Monkey();
 
-        Because of = () => 
+        Because of = () =>
             _systemUnderTest.Eat("banana");
 
         It should_have_the_food_in_its_belly = () =>
             _systemUnderTest.Belly.Should().Contain("banana");
+    }
+
+    public class when_user_input_is_empty
+    {
+        private Establish _context = () => { _systemUnderTest = new Calculator(); };
+
+        Because of = () => { _result = _systemUnderTest.Add(); };
+
+        It should_return_zero = () => { _result.Should().Be(0); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+    internal class Calculator
+    {
+        public int Add()
+        {
+            return -1;
+        }
     }
 }
 
