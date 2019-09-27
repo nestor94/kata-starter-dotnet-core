@@ -16,7 +16,7 @@ namespace Kata
                 input = input.Split("\n")[1];
             }
             var query = input.Split(separator, StringSplitOptions.None);
-            var numbers = query.Select(int.Parse).ToArray();
+            var numbers = query.Select(int.Parse).Where(x=> x<= 1000).ToArray();
             var negativeNumbers = numbers.Where(x => x < 0).ToArray();
             if (negativeNumbers.Any())
             {
