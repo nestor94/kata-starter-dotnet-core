@@ -36,7 +36,7 @@ namespace Kata
             var negativeNumbers = numbers.Where(x => x < 0).ToArray();
             if (negativeNumbers.Any())
             {
-                throw new Exception($"negatives not allowed: {negativeNumbers[0]}");
+                throw new Exception($"negatives not allowed: {string.Join(", ", negativeNumbers)}");
             }
 
             return numbers.Sum();
