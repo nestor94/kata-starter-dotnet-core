@@ -165,7 +165,7 @@ namespace Kata.Spec
             _systemUnderTest = new Calculator();
         };
 
-        Because of = () => { _result = _systemUnderTest.Add("//[*][%]\n1*2%3"); };
+        Because of = () => { _result = _systemUnderTest.Add("//*]%]-]\n1*2%3"); };
 
         It should_return_the_sum = () => { _result.Should().Be(6); };
         static Calculator _systemUnderTest;
