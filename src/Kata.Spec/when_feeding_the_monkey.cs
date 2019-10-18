@@ -59,6 +59,21 @@ namespace Kata.Spec
         static int _result;
     }
 
+    public class when_inputs_multiple_numbers
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("1,2,3"); };
+
+        It should_sum_them_all = () => { _result.Should().Be(6); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
 }
 
 /*
