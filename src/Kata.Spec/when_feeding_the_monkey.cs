@@ -87,6 +87,21 @@ namespace Kata.Spec
         static int _result;
     }
 
+    public class when_user_inputs_custom_separator
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add("//;\n1;2"); };
+
+        It should_sum_the_input = () => { _result.Should().Be(3); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+
+
 }
 
 /*
