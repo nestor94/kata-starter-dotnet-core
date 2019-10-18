@@ -31,6 +31,7 @@ namespace Kata
             var numbers = userInput
                 .Split(separators, StringSplitOptions.None)
                 .Select(int.Parse)
+                .Where(x => x <= 1000)
                 .ToArray();
 
             var negativeNumbers = numbers.Where(x => x < 0).ToArray();
